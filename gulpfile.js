@@ -12,7 +12,9 @@ const destinationFolder = path.dirname(mainFile);
 
 // Remove the built files
 gulp.task('clean', function(cb) {
-  del([destinationFolder], cb);
+  del([destinationFolder]).then( function() {
+    cb();
+  });
 });
 
 // Send a notification when JSHint fails,
